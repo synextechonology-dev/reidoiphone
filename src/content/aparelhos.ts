@@ -40,6 +40,14 @@ export const CORES: Record<string, string> = {
   "Prata-claro": "#E3E4E5",
 };
 
+/**
+ * Fotos reais, por "id|cor" (mesma chave da prévia). Onde não houver foto,
+ * os cards usam o desenho do aparelho. Arquivos em public/fotos/.
+ */
+export const fotos: Record<string, { costas: string; w: number; h: number }> = {
+  "15|Preto": { costas: "/fotos/iphone-15-preto-costas.webp", w: 353, h: 356 },
+};
+
 /** Um aparelho seminovo em estoque. EXEMPLO. */
 export type Unidade = {
   gb: number;

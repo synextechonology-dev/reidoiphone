@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, IBM_Plex_Mono, Inter, Outfit } from "next/font/google";
 import "./globals.css";
+import Abertura from "@/components/Abertura";
+import Inclinar3D from "@/components/efeitos/Inclinar3D";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -55,11 +57,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script
           dangerouslySetInnerHTML={{
             __html:
-              "try{if(localStorage.getItem('rei-tema')==='claro')document.documentElement.dataset.tema='claro'}catch(e){}",
+              "try{if(localStorage.getItem('rei-tema')==='claro')document.documentElement.dataset.tema='claro'}catch(e){}" +
+              "try{if(!sessionStorage.getItem('rei-abertura'))document.documentElement.dataset.abertura='1'}catch(e){document.documentElement.dataset.abertura='1'}",
           }}
         />
       </head>
-      <body>{children}</body>
+      <body>
+        <Abertura />
+        <Inclinar3D />
+        {children}
+      </body>
     </html>
   );
 }

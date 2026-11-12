@@ -5,6 +5,8 @@ import { aparelhoPorId, aparelhos, menorPreco, type Aparelho as Modelo } from "@
 import { brl } from "@/lib/formatar";
 import { IconCamera, IconChip, IconConector, IconDisco, IconEstrela, IconTela } from "./Icones";
 import Aparelho from "./Aparelho";
+import DeslizarLateral from "./efeitos/DeslizarLateral";
+import { ContarAoAparecer, NumeroQueConta } from "./efeitos/NumeroQueConta";
 import s from "./Comparador.module.css";
 
 type Lado = "a" | "b";
@@ -23,10 +25,13 @@ const linhas = [
 
 const corDe = (m: Modelo) => (m.novo ? m.novo.cores[0] : m.semi![0].cor);
 
+// Linhas em que os números contam (não os nomes de chip)
+const contam = ["tela", "cam", "arm"];
+
 function Coluna({ lado, id, aoMudar }: { lado: Lado; id: string; aoMudar: (id: string) => void }) {
   const m = aparelhoPorId(id)!;
   return (
-    <div className={s.col}>
+    <DeslizarLateral lado={lado === "a" ? "esquerda" : "direita"} ordem={lado === "a" ? 0 : 1} className={s.col}>
       <Aparelho modelo={m} cor={corDe(m)} className={s.aparelho} />
       <label htmlFor={`sel-${lado}`}>{lado === "a" ? "Primeiro" : "Segundo"} modelo</label>
       <select className={s.sel} id={`sel-${lado}`} value={id} onChange={(e) => aoMudar(e.target.value)}>
@@ -39,7 +44,7 @@ function Coluna({ lado, id, aoMudar }: { lado: Lado; id: string; aoMudar: (id: s
       <span className={s.from}>
         a partir de<b>{brl(menorPreco(m))}</b>
       </span>
-    </div>
+    </DeslizarLateral>
   );
 }
 
@@ -93,6 +98,7 @@ export default function Comparador() {
             <Coluna lado="a" id={sel.a} aoMudar={(id) => setSel((x) => ({ ...x, a: id }))} />
             <Coluna lado="b" id={sel.b} aoMudar={(id) => setSel((x) => ({ ...x, b: id }))} />
           </div>
+          <ContarAoAparecer chave={sel.a + sel.b}>
           <div className={s.rows}>
             {linhas.map(({ k, rotulo, Icone }) => {
               const diff = A[k] !== B[k];
@@ -104,13 +110,14 @@ export default function Comparador() {
                     {diff && <span className="sr"> (diferente)</span>}
                   </h3>
                   <div className={s.vals}>
-                    <span>{A[k]}</span>
-                    <span>{B[k]}</span>
+                    <span>{contam.includes(k) ? <NumeroQueConta texto={A[k] ?? ""} /> : A[k]}</span>
+                    <span>{contam.includes(k) ? <NumeroQueConta texto={B[k] ?? ""} /> : B[k]}</span>
                   </div>
                 </div>
               );
             })}
           </div>
+          </ContarAoAparecer>
           <p className={s.legend}>
             <span className={s.df} aria-hidden="true" />
             Em dourado, o que é diferente entre os dois

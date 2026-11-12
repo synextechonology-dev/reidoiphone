@@ -125,6 +125,10 @@
 }
 
 .price {
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: transform 0.18s ease-out;
+  transform-origin: left center;
   display: flex;
   align-items: baseline;
   gap: 8px;

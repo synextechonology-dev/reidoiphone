@@ -133,7 +133,7 @@ export default function Quiz() {
                   </div>
                 </div>
                 <p className={s.why}>{res.why}</p>
-                <div className={s.price}>
+                <div className={s.price} data-inclinar="14" data-inclinar-z="12">
                   <b>{brl(res.best.p)}</b>
                   <small>no Pix</small>
                 </div>

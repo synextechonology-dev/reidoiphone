@@ -25,7 +25,7 @@ export default function CardNovo({ modelo }: { modelo: Modelo }) {
 
   if (modelo.soon) {
     return (
-      <article className={c.pc} id={`card-${modelo.id}`} aria-labelledby={`t-${modelo.id}`}>
+      <article className={c.pc} data-inclinar="7" id={`card-${modelo.id}`} aria-labelledby={`t-${modelo.id}`}>
         <Palco tag={{ texto: "Em breve", tipo: "soon" }}>
           <Aparelho modelo={modelo} cor="Preto" className={c.aparelho} style={{ opacity: 0.35, ["--c" as string]: "#3a3a3d" }} />
         </Palco>
@@ -51,7 +51,7 @@ export default function CardNovo({ modelo }: { modelo: Modelo }) {
   const msg = `Olá! Quero o ${modelo.nome} novo, ${gbl(gb)}, cor ${cor}, de ${brl(preco)}. Tem disponível?`;
 
   return (
-    <article className={c.pc} id={`card-${modelo.id}`} aria-labelledby={`t-${modelo.id}`}>
+    <article className={c.pc} data-inclinar="7" id={`card-${modelo.id}`} aria-labelledby={`t-${modelo.id}`}>
       <Palco tag={modelo.lanc ? { texto: "Lançamento", tipo: "new" } : undefined}>
         {fotos[`${modelo.id}|${cor}`] && <span className={`${c.refTag} tbc`}>foto de referência</span>}
         <Aparelho modelo={modelo} cor={cor} className={c.aparelho} />
@@ -111,7 +111,7 @@ export default function CardNovo({ modelo }: { modelo: Modelo }) {
       </dl>
 
       <div className={c.buy}>
-        <div className={c.price}>
+        <div className={c.price} data-inclinar="14" data-inclinar-z="12">
           <b>{brl(preco)}</b>
           <small>no Pix, ou em até 12x</small>
         </div>

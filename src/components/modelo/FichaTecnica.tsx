@@ -8,6 +8,7 @@ import {
   IconEscudo,
   IconTela,
 } from "../Icones";
+import { ContarAoAparecer, NumeroQueConta } from "../efeitos/NumeroQueConta";
 import s from "./Ficha.module.css";
 
 const linhas = [
@@ -26,12 +27,13 @@ export default function FichaTecnica({ modelo }: { modelo: Aparelho }) {
       <h2 className="mp-h" style={{ marginBottom: 16 }}>
         Ficha técnica
       </h2>
+      <ContarAoAparecer chave={modelo.id}>
       <dl className={s.specs}>
         {linhas.map(({ k, rotulo, Icone }) => (
           <div key={k}>
             <Icone />
             <dt>{rotulo}</dt>
-            <dd>{modelo[k]}</dd>
+            <dd>{k === "chip" ? modelo[k] : <NumeroQueConta texto={modelo[k] ?? ""} />}</dd>
           </div>
         ))}
         {fichaExtra.map((e) => {
@@ -45,6 +47,7 @@ export default function FichaTecnica({ modelo }: { modelo: Aparelho }) {
           );
         })}
       </dl>
+      </ContarAoAparecer>
     </div>
   );
 }

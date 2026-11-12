@@ -11,7 +11,7 @@ export function CardSeminovo({ modelo, unidade, indice }: { modelo: Modelo; unid
   const u = unidade;
   const msg = `Olá! Quero o ${modelo.nome} seminovo, ${gbl(u.gb)}, cor ${u.cor}, bateria ${u.bat}%, de ${brl(u.p)}. Ainda está disponível?`;
   return (
-    <article className={c.pc} aria-labelledby={`tu-${modelo.id}-${indice}`}>
+    <article className={c.pc} data-inclinar="7" aria-labelledby={`tu-${modelo.id}-${indice}`}>
       <Palco>
         <Aparelho modelo={modelo} cor={u.cor} className={c.aparelho} />
       </Palco>
@@ -35,7 +35,7 @@ export function CardSeminovo({ modelo, unidade, indice }: { modelo: Modelo; unid
         </span>
       </div>
       <div className={c.buy}>
-        <div className={c.price}>
+        <div className={c.price} data-inclinar="14" data-inclinar-z="12">
           <b>{brl(u.p)}</b>
           <small>no Pix, ou em até 12x</small>
         </div>
@@ -62,7 +62,7 @@ export function CardSeminovo({ modelo, unidade, indice }: { modelo: Modelo; unid
 /** Modelo sem nenhum seminovo no estoque. */
 export function CardSemEstoque({ modelo }: { modelo: Modelo }) {
   return (
-    <article className={c.pc} aria-labelledby={`tv-${modelo.id}`}>
+    <article className={c.pc} data-inclinar="7" aria-labelledby={`tv-${modelo.id}`}>
       <Palco>
         <Aparelho modelo={modelo} cor="Prata-claro" className={c.aparelho} style={{ opacity: 0.3 }} />
       </Palco>

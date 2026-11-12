@@ -1,0 +1,174 @@
+/* Antes de tocar: só a cortina preta (o script do layout marca <html data-abertura>). */
+.intro {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: none;
+}
+
+:global(html[data-abertura]) .intro {
+  display: block;
+}
+
+/* Rede de segurança: se o JS não rodar, a cortina some sozinha */
+:global(html[data-abertura]) .intro:not(.play) {
+  animation: introOff 0s linear 5s forwards;
+}
+
+.intro.play {
+  display: block;
+  animation: introOff 0s linear 2.5s forwards;
+}
+
+.door {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: #000;
+}
+
+.door::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #dfb35a 30%, #f3dea6 50%, #dfb35a 70%, transparent);
+  box-shadow: 0 0 18px 2px rgba(223, 179, 90, 0.45);
+}
+
+.doorIn {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000;
+}
+
+.play .door {
+  animation: lift 1s cubic-bezier(0.77, 0, 0.18, 1) 1.45s forwards;
+}
+
+.play .logo {
+  animation: logoUp 1s cubic-bezier(0.77, 0, 0.18, 1) 1.45s forwards;
+}
+
+@keyframes lift {
+  to {
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes logoUp {
+  to {
+    transform: translateY(-12vh);
+    opacity: 0.4;
+  }
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  flex: none;
+}
+
+.logo img {
+  max-width: none;
+  display: block;
+}
+
+.sym {
+  width: clamp(64px, 9vw, 96px);
+  height: auto;
+  opacity: 0;
+  transform: translateY(14px) scale(0.92);
+}
+
+.play .sym {
+  animation: inUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
+}
+
+.wm {
+  width: clamp(200px, 26vw, 300px);
+  height: auto;
+  opacity: 0;
+}
+
+.play .wm {
+  animation: inFade 0.7s ease 0.5s forwards;
+}
+
+.line {
+  display: block;
+  width: clamp(120px, 16vw, 180px);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #dfb35a, transparent);
+  transform: scaleX(0);
+}
+
+.play .line {
+  animation: inLine 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.8s forwards;
+}
+
+@keyframes inUp {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes inFade {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes inLine {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes introOff {
+  to {
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+
+/* clique ou tecla: a cortina sobe mais rápido */
+.play.skip .door {
+  animation: lift 0.5s cubic-bezier(0.77, 0, 0.18, 1) forwards;
+}
+
+.play.skip {
+  animation: introOff 0s linear 0.55s forwards;
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .intro.play {
+    animation: introOff 0s linear 0.9s forwards;
+  }
+  .intro.play .door {
+    animation: fadeOut 0.4s ease 0.5s forwards;
+  }
+  .intro.play .sym,
+  .intro.play .wm {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+  .line {
+    display: none;
+  }
+}

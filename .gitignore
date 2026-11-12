@@ -6,3 +6,7 @@ next-env.d.ts
 .env*.local
 .vercel
 rei-do-iphone-c5.zip
+
+# Material de referência: não publicar (CLAUDE.md, "Marca e direitos")
+midia-referencia/
+previa/

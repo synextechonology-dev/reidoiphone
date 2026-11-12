@@ -1,13 +1,13 @@
 import { linkWhatsApp } from "@/lib/whatsapp";
 import { site } from "@/content/site";
 import PilulaHero from "./PilulaHero";
+import HeroFundo from "./HeroFundo";
 import s from "./Hero.module.css";
 
 export default function Hero() {
   return (
     <section className={`${s.hero} band-dark`} aria-labelledby="h-hero">
-      {/* Fundo: gradiente em movimento (9 s). A foto de fundo real entra por cima quando o Felipe mandar. */}
-      <div className={s.bg} aria-hidden="true" />
+      <HeroFundo />
       <div className="wrap">
         <div className={s.copy}>
           <PilulaHero />
@@ -23,7 +23,7 @@ export default function Hero() {
             </a>
           </div>
         </div>
-        <span className={`${s.note} tbc`}>foto de fundo do hero entra aqui (3 aparelhos de costas, 4K)</span>
+        <span className={`${s.note} tbc`}>imagem de fundo de referência, trocar antes de publicar</span>
       </div>
     </section>
   );

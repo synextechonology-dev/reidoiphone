@@ -28,6 +28,47 @@
   animation: grad 9s ease infinite;
 }
 
+/* foto de fundo: entra com zoom, desloca com o cursor (--px/--py, ver HeroFundo) */
+.frame {
+  position: absolute;
+  inset: 0;
+  transform: translate(var(--px, 0px), var(--py, 0px)) scale(1.03);
+  transition: transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.frame img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+  opacity: 0.55;
+  filter: saturate(0.95);
+  animation: bgIn 1.6s ease-out both;
+}
+
+@keyframes bgIn {
+  from {
+    transform: scale(1.06);
+  }
+  to {
+    transform: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .frame {
+    inset: 0 0 auto;
+    aspect-ratio: 678 / 452;
+    transform: none;
+    -webkit-mask-image: linear-gradient(#000 55%, transparent);
+    mask-image: linear-gradient(#000 55%, transparent);
+  }
+  .frame img {
+    opacity: 0.6;
+  }
+}
+
 .bg::after {
   content: "";
   position: absolute;

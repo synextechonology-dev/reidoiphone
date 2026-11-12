@@ -1,0 +1,52 @@
+/* Ficha técnica e blocos "Na caixa" / "Garantia" */
+.specs {
+  display: grid;
+  border-top: 1px solid var(--line);
+  margin: 0;
+}
+
+.specs div {
+  display: grid;
+  grid-template-columns: 24px minmax(90px, 150px) minmax(0, 1fr);
+  gap: 12px;
+  padding-block: 14px;
+  border-bottom: 1px solid var(--line);
+  align-items: start;
+}
+
+.specs svg {
+  width: 20px;
+  height: 20px;
+  color: var(--gold-ink);
+}
+
+.specs dt {
+  color: var(--text-2);
+  font-size: 15px;
+}
+
+.specs dd {
+  margin: 0;
+  font: 500 14.5px/1.5 var(--mono);
+}
+
+.box {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+
+.box div {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 16px;
+  background: var(--surface);
+  font-size: 15px;
+}
+
+.box small {
+  display: block;
+  color: var(--text-2);
+  font-size: 13px;
+  margin-top: 4px;
+}

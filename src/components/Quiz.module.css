@@ -102,7 +102,7 @@
   align-items: center;
 }
 
-.aparelho {
+.resTop .aparelho {
   width: 58px;
   flex: none;
   -webkit-box-reflect: unset;

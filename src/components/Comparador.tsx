@@ -58,6 +58,16 @@ export default function Comparador() {
       });
     }
     window.addEventListener("rei-comparar", receber);
+    // Vindo da página de um modelo ("Comparar com outro"): o id fica em sessionStorage.
+    try {
+      const id = sessionStorage.getItem("rei-comparar");
+      if (id) {
+        sessionStorage.removeItem("rei-comparar");
+        if (aparelhoPorId(id)) receber(new CustomEvent("rei-comparar", { detail: id }));
+      }
+    } catch {
+      /* sem sessionStorage: segue com os modelos padrão */
+    }
     return () => window.removeEventListener("rei-comparar", receber);
   }, []);
 

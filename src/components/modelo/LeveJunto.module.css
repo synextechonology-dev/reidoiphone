@@ -1,0 +1,57 @@
+.sub {
+  font-size: 14px;
+  color: var(--text-2);
+  margin-bottom: 16px;
+}
+
+.acc {
+  display: grid;
+  gap: 8px;
+}
+
+.acc label {
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr) auto;
+  gap: 12px;
+  align-items: center;
+  min-height: 60px;
+  padding: 10px 14px;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.acc label:hover {
+  border-color: var(--line-2);
+}
+
+.acc input {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--gold);
+  margin: 0;
+}
+
+.acc label:has(input:checked) {
+  border-color: var(--gold);
+  background: var(--gold-soft);
+}
+
+.n {
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.d {
+  display: block;
+  font-size: 13px;
+  color: var(--text-2);
+  font-weight: 400;
+}
+
+.v {
+  font: 500 15px var(--mono);
+  white-space: nowrap;
+}

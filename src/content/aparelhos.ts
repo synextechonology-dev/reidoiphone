@@ -399,3 +399,17 @@ export const menorPreco = (a: Aparelho): number =>
     Infinity,
     ...[...(a.novo?.gb ?? []).map((g) => g[1]), ...(a.semi ?? []).map((u) => u.p)].filter(Boolean),
   );
+
+/** Tem página própria (/iphone/[slug]): à venda como novo ou com seminovo em estoque. */
+export const temPagina = (a: Aparelho): boolean =>
+  !a.soon && ((a.novo?.gb.length ?? 0) > 0 || (a.semi?.length ?? 0) > 0);
+
+/** Linhas extras da ficha técnica (iguais para todos os modelos na prévia). */
+export const fichaExtra = [
+  { rotulo: "Desbloqueio", icone: "escudo", valor: "Face ID" },
+  { rotulo: "Rede", icone: "chip", valor: "5G" },
+  { rotulo: "Carregamento", icone: "bateria", valor: "MagSafe e sem fio Qi" },
+] as const;
+
+/** Modelos com Dynamic Island (os demais têm notch na vista frontal). */
+export const comIlha = ["15", "16", "17", "18p", "18pm", "15pro"];

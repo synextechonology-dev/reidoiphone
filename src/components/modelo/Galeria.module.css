@@ -1,0 +1,233 @@
+.pans {
+  display: flex;
+  width: 100%;
+  height: clamp(340px, 96vw, 540px);
+  border-radius: 24px;
+  border: 1px solid var(--line);
+  overflow: hidden;
+  background: radial-gradient(55% 50% at 50% 52%, var(--glow), transparent 72%),
+    radial-gradient(var(--grid) 1px, transparent 1px) 0 0 / 18px 18px, var(--surface);
+}
+
+.pan {
+  flex: 0 1 0%;
+  min-width: 0;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: flex-grow 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  touch-action: pan-y;
+  perspective: 700px;
+}
+
+.aberto {
+  flex-grow: 1;
+}
+
+.view {
+  height: 72%;
+  aspect-ratio: 0.486;
+  flex: none;
+  position: relative;
+  opacity: 0.35;
+  transition: opacity 0.5s, transform 0.18s ease-out;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.aberto .view {
+  opacity: 1;
+}
+
+.view > .devView {
+  width: 100%;
+  -webkit-box-reflect: unset;
+}
+
+.rot {
+  position: absolute;
+  left: 16px;
+  bottom: 14px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.refTag {
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 11px;
+  white-space: nowrap;
+  z-index: 1;
+}
+
+/* Frente */
+.front {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 19% / 9%;
+  background: radial-gradient(70% 45% at 50% 60%, rgba(223, 179, 90, 0.22), transparent 70%),
+    linear-gradient(160deg, #16161a, #060607);
+  box-shadow: inset 0 0 0 2px var(--c), inset 0 0 0 6px #000, 0 24px 40px -18px rgba(0, 0, 0, 0.6);
+  position: relative;
+}
+
+.isl {
+  position: absolute;
+  top: 3.4%;
+  left: 50%;
+  width: 30%;
+  height: 3.6%;
+  transform: translateX(-50%);
+  border-radius: 999px;
+  background: #000;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+
+.notch {
+  position: absolute;
+  top: 1.2%;
+  left: 50%;
+  width: 38%;
+  height: 4.2%;
+  transform: translateX(-50%);
+  border-radius: 0 0 14px 14px;
+  background: #000;
+}
+
+.time {
+  display: block;
+  position: absolute;
+  top: 13%;
+  width: 100%;
+  text-align: center;
+  font: 600 clamp(14px, 2.4vw, 30px) var(--display);
+  color: #f5f5f7;
+  letter-spacing: -0.02em;
+}
+
+/* Lateral */
+.side {
+  display: block;
+  width: 16%;
+  height: 100%;
+  margin: 0 auto;
+  border-radius: 40px;
+  position: relative;
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--c) 65%, #000),
+    var(--c) 40%,
+    color-mix(in srgb, var(--c) 70%, #fff) 60%,
+    color-mix(in srgb, var(--c) 75%, #000)
+  );
+  box-shadow: 0 24px 40px -18px rgba(0, 0, 0, 0.6);
+}
+
+.side i {
+  position: absolute;
+  right: -3px;
+  width: 4px;
+  border-radius: 2px;
+  background: color-mix(in srgb, var(--c) 70%, #000);
+}
+.side i:nth-child(1) {
+  top: 18%;
+  height: 5%;
+}
+.side i:nth-child(2) {
+  top: 26%;
+  height: 9%;
+}
+.side i:nth-child(3) {
+  top: 37%;
+  height: 9%;
+}
+
+/* Câmera (close) */
+.cam {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 18px;
+  overflow: hidden;
+  position: relative;
+}
+
+.cam .camDev {
+  position: absolute;
+  width: 250%;
+  left: -12%;
+  top: -6%;
+  -webkit-box-reflect: unset;
+  box-shadow: none;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.nav button {
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
+  border: 1px solid var(--line-2);
+  background: var(--surface);
+  color: var(--text);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s, transform 0.2s;
+}
+
+.nav button:hover {
+  border-color: var(--gold);
+  color: var(--gold-ink);
+}
+
+.nav button:active {
+  transform: scale(0.94);
+}
+
+.nav svg {
+  width: 20px;
+  height: 20px;
+}
+
+.cnt {
+  font-size: 14px;
+  color: var(--text-2);
+  text-align: center;
+}
+
+.cnt b {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.hint {
+  font-size: 13px;
+  color: var(--text-2);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hint i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--text);
+  box-shadow: 0 0 0 1.5px var(--line-2);
+  flex: none;
+}

@@ -16,10 +16,10 @@ export default function Rodape() {
           <div>
             <h3>Navegue</h3>
             <ul>
-              <li><a href="#vitrine">Vitrine</a></li>
-              <li><a href="#qual">Qual é o seu</a></li>
-              <li><a href="#comparar">Comparar</a></li>
-              <li><a href="#duvidas">Dúvidas</a></li>
+              <li><a href="/#vitrine">Vitrine</a></li>
+              <li><a href="/#qual">Qual é o seu</a></li>
+              <li><a href="/#comparar">Comparar</a></li>
+              <li><a href="/#duvidas">Dúvidas</a></li>
             </ul>
           </div>
           <div>
@@ -31,11 +31,11 @@ export default function Rodape() {
                 </a>
               </li>
               <li>
-                <a href="#onde">Endereço e horário</a>
+                <a href="/#onde">Endereço e horário</a>
               </li>
               <li>
                 {pendente.instagram ? (
-                  <a href="#onde">
+                  <a href="/#onde">
                     Instagram <span className="tbc" style={{ marginLeft: 6 }}>@ a confirmar</span>
                   </a>
                 ) : (

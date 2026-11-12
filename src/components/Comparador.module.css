@@ -22,7 +22,7 @@
   min-width: 0;
 }
 
-.aparelho {
+.col .aparelho {
   width: 58px;
   -webkit-box-reflect: unset;
   margin-block: 6px;
@@ -132,7 +132,7 @@
   .vals {
     gap: 32px;
   }
-  .aparelho {
+  .col .aparelho {
     width: 72px;
   }
 }

@@ -345,3 +345,14 @@ img {
   width: 19px;
   height: 19px;
 }
+
+/* página do modelo: títulos e blocos compartilhados entre os componentes de modelo/ */
+.mp-h {
+  font-size: 22px;
+  letter-spacing: -0.015em;
+  margin-bottom: 6px;
+}
+
+.mp-sec {
+  margin-top: 64px;
+}

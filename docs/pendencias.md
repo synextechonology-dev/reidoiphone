@@ -27,9 +27,14 @@
 - Perfil no Google: https://www.google.com/maps?cid=12568105426326935106
 
 ## Técnico
-- [ ] Rotas reais por modelo (/iphone/[slug]) no lugar de #modelo-ID
-- [ ] Abertura só uma vez por sessão (na prévia roda sempre)
-- [ ] Tirar a faixa "Prévia do site" e todos os marcadores tracejados
+- [x] Rotas reais por modelo (/iphone/[slug]) no lugar de #modelo-ID
+- [x] Abertura só uma vez por sessão (na prévia roda sempre)
+- [x] Tirar a faixa "Prévia do site"
+- [ ] Tirar os marcadores tracejados (só quando o Felipe confirmar cada item acima)
 - [ ] Confirmar tela do iPhone 18 Pro (6,3") em fonte oficial; o 18 comum segue "Em breve" (2027)
-- [ ] LGPD: /privacidade, /cookies e aviso de cookies (C6)
+- [x] LGPD: /privacidade, /cookies e aviso de cookies (C6), em rascunho
+- [ ] Revisar o texto de /privacidade e /cookies (rascunho do que o site faz hoje) e preencher CNPJ e contato do titular
+- [ ] Domínio definitivo: definir NEXT_PUBLIC_SITE_URL na Vercel (hoje usa https://reidoiphone.com.br como reserva no sitemap, robots e dados estruturados)
+- [ ] Dados estruturados Product + Offer saem com os preços de EXEMPLO; só publicar depois do estoque real
+- [ ] Telefone e horário no LocalBusiness (entram quando confirmados)
 - [ ] Vercel Pro (uso comercial) e domínio por conta do cliente

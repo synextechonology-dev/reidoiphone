@@ -17,6 +17,8 @@
   min-height: 54px;
 }
 
+/* com o aviso de cookies aberto, a barra fica escondida (AvisoCookies marca o <html>) */
+:global(html[data-cookies="aberto"]) .barra,
 .hide {
   transform: translateY(110%);
 }

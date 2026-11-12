@@ -4,6 +4,10 @@
 
 export const site = {
   nome: "Rei do iPhone",
+  // PENDENTE: endereço (domínio) definitivo do site, por conta do cliente. Pode vir da variável
+  // NEXT_PUBLIC_SITE_URL na Vercel. Usado no sitemap, no robots e nos dados estruturados.
+  url: (process.env.NEXT_PUBLIC_SITE_URL ?? "https://reidoiphone.com.br").replace(/\/$/, ""),
+
   descricao:
     "Loja de iPhones novos e seminovos em Santa Cruz do Rio Pardo (SP), com bateria informada e atendimento pelo WhatsApp.",
 

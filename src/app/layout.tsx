@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, IBM_Plex_Mono, Inter, Outfit } from "next/font/google";
 import "./globals.css";
+import { site } from "@/content/site";
+import AvisoCookies from "@/components/AvisoCookies";
 import Abertura from "@/components/Abertura";
 import Inclinar3D from "@/components/efeitos/Inclinar3D";
 
@@ -34,9 +36,18 @@ const geist = Geist({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(site.url),
   title: "Rei do iPhone | iPhones novos e seminovos em Santa Cruz do Rio Pardo",
-  description:
-    "Loja de iPhones novos e seminovos em Santa Cruz do Rio Pardo (SP), com bateria informada e atendimento pelo WhatsApp.",
+  description: site.descricao,
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    locale: "pt_BR",
+    siteName: site.nome,
+    title: "Rei do iPhone | iPhones novos e seminovos em Santa Cruz do Rio Pardo",
+    description: site.descricao,
+    url: "/",
+  },
 };
 
 export const viewport: Viewport = {
@@ -66,6 +77,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Abertura />
         <Inclinar3D />
         {children}
+        <AvisoCookies />
       </body>
     </html>
   );

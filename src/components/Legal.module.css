@@ -1,0 +1,80 @@
+.pagina {
+  padding-block: 40px 96px;
+  max-width: 780px;
+}
+
+.pagina h1 {
+  font-size: 36px;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+}
+
+.data {
+  font-size: 14px;
+  color: var(--text-2);
+  margin-bottom: 32px;
+}
+
+.pagina h2 {
+  font-size: 22px;
+  letter-spacing: -0.015em;
+  margin: 36px 0 10px;
+}
+
+.pagina p,
+.pagina li {
+  color: var(--text-2);
+  max-width: 68ch;
+}
+
+.pagina p + p {
+  margin-top: 12px;
+}
+
+.pagina ul {
+  margin: 10px 0 0;
+  padding-left: 20px;
+  display: grid;
+  gap: 6px;
+}
+
+.pagina a {
+  color: var(--gold-ink);
+  text-underline-offset: 3px;
+}
+
+.tabela {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  font-size: 14px;
+}
+
+.tabela th,
+.tabela td {
+  text-align: left;
+  padding: 10px 12px 10px 0;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+  color: var(--text-2);
+}
+
+.tabela th {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.tabela code {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--text);
+}
+
+.rolagem {
+  overflow-x: auto;
+}
+
+.acao {
+  margin-top: 16px;
+}

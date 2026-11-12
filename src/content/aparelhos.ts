@@ -45,7 +45,7 @@ export const CORES: Record<string, string> = {
  * os cards usam o desenho do aparelho. Arquivos em public/fotos/.
  */
 export const fotos: Record<string, { costas: string; w: number; h: number }> = {
-  "15|Preto": { costas: "/fotos/iphone-15-preto-costas.webp", w: 353, h: 356 },
+  "15|Preto": { costas: "/fotos/iphone-15-preto-costas.webp", w: 156, h: 312 },
 };
 
 /** Um aparelho seminovo em estoque. EXEMPLO. */

@@ -1,6 +1,6 @@
 import { linkWhatsApp } from "@/lib/whatsapp";
 import { site } from "@/content/site";
-import { IconSeta } from "./Icones";
+import PilulaHero from "./PilulaHero";
 import s from "./Hero.module.css";
 
 export default function Hero() {
@@ -10,12 +10,7 @@ export default function Hero() {
       <div className={s.bg} aria-hidden="true" />
       <div className="wrap">
         <div className={s.copy}>
-          <a className={s.pill} href="#vitrine">
-            iPhone 18 Pro Max <b>na vitrine</b>
-            <span className={s.go}>
-              <IconSeta />
-            </span>
-          </a>
+          <PilulaHero />
           <h1 id="h-hero" className={s.h1}>
             Quem entende de iPhone <span>é o Rei</span>
           </h1>

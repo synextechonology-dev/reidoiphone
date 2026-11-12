@@ -1,0 +1,162 @@
+.quiz {
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  background: var(--surface);
+  padding: 24px 16px;
+  display: grid;
+  gap: 28px;
+  max-width: 1040px;
+  margin: 0 auto;
+}
+
+.qs {
+  display: grid;
+  gap: 22px;
+}
+
+.q {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}
+
+.q legend {
+  font: 600 17px var(--display);
+  margin-bottom: 12px;
+  padding: 0;
+  color: var(--text);
+}
+
+.ch {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.q label {
+  position: relative;
+}
+
+.q input {
+  position: absolute;
+  opacity: 0;
+  inset: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+.q span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 16px;
+  border-radius: 999px;
+  border: 1px solid var(--line-2);
+  font-size: 15px;
+  color: var(--text);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.q label:hover span {
+  border-color: var(--text-2);
+}
+
+.q input:checked + span {
+  background: var(--text);
+  color: var(--bg);
+  border-color: var(--text);
+}
+
+.q input:focus-visible + span {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+.res {
+  border-radius: 20px;
+  border: 1px dashed var(--line-2);
+  padding: 20px;
+  display: grid;
+  gap: 14px;
+  align-content: center;
+  min-height: 200px;
+  background: var(--surface-2);
+}
+
+.res.on {
+  border-style: solid;
+  border-color: var(--gold);
+}
+
+.empty {
+  color: var(--text-2);
+  font-size: 15px;
+  text-align: center;
+}
+
+.resTop {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.aparelho {
+  width: 58px;
+  flex: none;
+  -webkit-box-reflect: unset;
+}
+
+.kick {
+  font-size: 13px;
+  color: var(--gold-ink);
+  font-weight: 500;
+}
+
+.res h3 {
+  font-size: 24px;
+  letter-spacing: -0.015em;
+}
+
+.why {
+  font-size: 14.5px;
+  color: var(--text-2);
+}
+
+.price {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.price b {
+  font: 500 28px var(--mono);
+  letter-spacing: -0.02em;
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+
+.price small {
+  font-size: 13px;
+  color: var(--text-2);
+}
+
+.acts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.acts :global(.btn) {
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .quiz {
+    padding: 36px;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    align-items: stretch;
+  }
+}

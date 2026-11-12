@@ -1,6 +1,9 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import JeitoDoFelipe from "@/components/JeitoDoFelipe";
+import Vitrine from "@/components/Vitrine";
+import Quiz from "@/components/Quiz";
+import Comparador from "@/components/Comparador";
 import Avaliacoes from "@/components/Avaliacoes";
 import PedidoForm from "@/components/PedidoForm";
 import Duvidas from "@/components/Duvidas";
@@ -8,8 +11,6 @@ import OndeEstamos from "@/components/OndeEstamos";
 import Rodape from "@/components/Rodape";
 import BarraWhatsApp from "@/components/BarraWhatsApp";
 
-// Etapa 2. A vitrine, "Qual iPhone combina com você?" e "Na dúvida entre dois?"
-// entram na Etapa 3, entre "Do jeito do Felipe" e "Quem comprou, recomenda".
 export default function Home() {
   return (
     <>
@@ -17,6 +18,9 @@ export default function Home() {
       <main id="inicio">
         <Hero />
         <JeitoDoFelipe />
+        <Vitrine />
+        <Quiz />
+        <Comparador />
         <Avaliacoes />
         <PedidoForm />
         <Duvidas />

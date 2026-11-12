@@ -1,0 +1,88 @@
+.nav {
+  display: grid;
+  gap: 12px;
+  justify-items: center;
+  margin: -12px 0 32px;
+}
+
+.row {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  max-width: 100%;
+  padding: 4px;
+  scrollbar-width: none;
+}
+
+.row::-webkit-scrollbar {
+  display: none;
+}
+
+.chip,
+.mod {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 16px;
+  border-radius: 999px;
+  border: 1px solid var(--line-2);
+  background: var(--surface);
+  color: var(--text);
+  font: 600 15px var(--display);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.chip small,
+.mod small {
+  font: 500 12px var(--body);
+  color: var(--text-2);
+}
+
+.chip:hover,
+.mod:hover {
+  border-color: var(--text-2);
+}
+
+.chip.on {
+  background: var(--text);
+  color: var(--bg);
+  border-color: var(--text);
+}
+
+.chip.on small {
+  color: var(--bg);
+  opacity: 0.7;
+}
+
+.sub {
+  position: relative;
+  padding-top: 14px;
+}
+
+.sub::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 1px;
+  height: 10px;
+  background: var(--line-2);
+}
+
+.mod {
+  flex-direction: column;
+  justify-content: center;
+  gap: 0;
+  min-height: 56px;
+  padding: 6px 18px;
+  border-radius: 16px;
+  line-height: 1.25;
+}
+
+.mod.on {
+  border-color: var(--gold);
+  background: var(--gold-soft);
+}

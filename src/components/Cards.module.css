@@ -1,0 +1,251 @@
+/* Estilos compartilhados dos cards (vitrine, quiz e, na Etapa 4, página do modelo) */
+.grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: start;
+}
+
+.pc {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 14px;
+  display: grid;
+  gap: 16px;
+  align-content: start;
+  position: relative;
+  transition: border-color 0.25s;
+}
+
+.pc:hover {
+  border-color: var(--line-2);
+}
+
+.stage {
+  position: relative;
+  border-radius: 16px;
+  aspect-ratio: 5 / 4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(60% 60% at 50% 55%, var(--glow), transparent 70%),
+    radial-gradient(var(--grid) 1px, transparent 1px) 0 0 / 18px 18px, var(--surface-2);
+  overflow: hidden;
+}
+
+.stage .aparelho {
+  width: 26%;
+  -webkit-box-reflect: unset;
+  transition: background 0.45s, transform 0.35s;
+}
+
+.pc:hover .stage .aparelho {
+  transform: translateY(-4px) rotate(-2deg);
+}
+
+.corner {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border: 0 solid var(--line-2);
+  transition: border-color 0.25s;
+}
+.c1 {
+  top: 12px;
+  left: 12px;
+  border-top-width: 1.5px;
+  border-left-width: 1.5px;
+  border-top-left-radius: 4px;
+}
+.c2 {
+  top: 12px;
+  right: 12px;
+  border-top-width: 1.5px;
+  border-right-width: 1.5px;
+  border-top-right-radius: 4px;
+}
+.c3 {
+  bottom: 12px;
+  left: 12px;
+  border-bottom-width: 1.5px;
+  border-left-width: 1.5px;
+  border-bottom-left-radius: 4px;
+}
+.c4 {
+  bottom: 12px;
+  right: 12px;
+  border-bottom-width: 1.5px;
+  border-right-width: 1.5px;
+  border-bottom-right-radius: 4px;
+}
+
+.pc:hover .corner,
+.pc[data-hot="true"] .corner {
+  border-color: var(--gold);
+}
+
+.tag {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  font: 500 12px var(--mono);
+  padding: 4px 10px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.tagNew {
+  background: var(--gold);
+  color: var(--on-gold);
+}
+.tagSoon {
+  border: 1px solid var(--line-2);
+  color: var(--text-2);
+  background: var(--surface);
+}
+
+.refTag {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px 12px;
+  flex-wrap: wrap;
+  padding-inline: 4px;
+}
+
+.head h3 {
+  font-size: 22px;
+  letter-spacing: -0.015em;
+}
+
+.dest {
+  font-size: 14px;
+  color: var(--text-2);
+  padding-inline: 4px;
+  margin-top: -10px;
+}
+
+.buy {
+  display: grid;
+  gap: 12px;
+  padding: 0 4px 4px;
+}
+
+.price {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.price b {
+  font: 500 28px var(--mono);
+  letter-spacing: -0.02em;
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+
+.price small {
+  font-size: 13px;
+  color: var(--text-2);
+}
+
+.acts {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+}
+
+.acts :global(.btn) {
+  width: 100%;
+}
+
+.ex {
+  font: 500 10.5px var(--mono);
+  color: var(--text-2);
+  letter-spacing: 0.04em;
+}
+
+.soonBox {
+  padding: 4px 4px 6px;
+  display: grid;
+  gap: 12px;
+  font-size: 14px;
+  color: var(--text-2);
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--c);
+  box-shadow: 0 0 0 1px var(--line-2);
+  flex: none;
+}
+
+.bat {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font: 500 13px var(--mono);
+}
+
+.bat .bar {
+  width: 58px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--line);
+  overflow: hidden;
+  flex: none;
+}
+
+.bat .bar i {
+  display: block;
+  height: 100%;
+  border-radius: 2px;
+  background: currentColor;
+}
+
+.ok {
+  color: var(--ok);
+}
+.mid {
+  color: var(--warn);
+}
+
+.from {
+  font-size: 14px;
+  color: var(--text-2);
+}
+
+.from b {
+  font: 500 16px var(--mono);
+  color: var(--text);
+}
+
+@media (min-width: 768px) {
+  .grid:not(.one) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1200px) {
+  .grid:not(.one) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.one {
+  grid-template-columns: minmax(0, 560px);
+  justify-content: center;
+}

@@ -1,0 +1,50 @@
+.seg {
+  display: inline-grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 4px;
+  border-radius: 999px;
+  border: 1px solid var(--line-2);
+  background: var(--surface);
+  position: relative;
+  margin: 0 auto 14px;
+}
+
+.seg button {
+  position: relative;
+  z-index: 1;
+  min-height: 44px;
+  min-width: 128px;
+  border: 0;
+  background: transparent;
+  color: var(--text-2);
+  font: 600 15px var(--display);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: color 0.25s;
+}
+
+.seg button[aria-pressed="true"] {
+  color: var(--on-gold);
+}
+
+.seg i {
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  left: 4px;
+  width: calc(50% - 4px);
+  border-radius: 999px;
+  background: var(--gold);
+  transition: transform 0.35s cubic-bezier(0.3, 0.7, 0.2, 1);
+}
+
+.seg[data-v="semi"] i {
+  transform: translateX(100%);
+}
+
+.hint {
+  text-align: center;
+  font-size: 14px;
+  color: var(--text-2);
+  margin-bottom: 32px;
+}

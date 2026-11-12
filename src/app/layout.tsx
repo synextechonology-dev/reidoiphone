@@ -47,8 +47,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="pt-BR"
+      suppressHydrationWarning
       className={`${outfit.variable} ${inter.variable} ${plexMono.variable} ${geist.variable}`}
     >
+      <head>
+        {/* Aplica o tema salvo antes da pintura (evita piscar). Padrão: escuro. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "try{if(localStorage.getItem('rei-tema')==='claro')document.documentElement.dataset.tema='claro'}catch(e){}",
+          }}
+        />
+      </head>
       <body>{children}</body>
     </html>
   );

@@ -1,0 +1,49 @@
+.sec {
+  background: var(--bg-2);
+  border-block: 1px solid var(--line);
+}
+
+.faq {
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.faq details {
+  border-bottom: 1px solid var(--line);
+}
+
+.faq summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  min-height: 64px;
+  font: 600 18px var(--display);
+}
+
+.faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq summary::after {
+  content: "";
+  flex: none;
+  width: 12px;
+  height: 12px;
+  border-right: 1.5px solid var(--gold-ink);
+  border-bottom: 1.5px solid var(--gold-ink);
+  transform: rotate(45deg) translate(-3px, -3px);
+  transition: transform 0.25s;
+}
+
+.faq details[open] summary::after {
+  transform: rotate(225deg);
+}
+
+.faq details p {
+  padding-bottom: 20px;
+  color: var(--text-2);
+  max-width: 62ch;
+}

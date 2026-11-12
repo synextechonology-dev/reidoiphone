@@ -1,0 +1,191 @@
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding-block: 88px 72px;
+  isolation: isolate;
+  background: var(--bg);
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background-image: radial-gradient(var(--grid) 1px, transparent 1px);
+  background-size: 24px 24px;
+  -webkit-mask-image: radial-gradient(80% 70% at 50% 40%, #000 30%, transparent 80%);
+  mask-image: radial-gradient(80% 70% at 50% 40%, #000 30%, transparent 80%);
+}
+
+/* efeito: gradiente em movimento, 9 s, por baixo da imagem */
+.bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  background: linear-gradient(120deg, #0b0b0c, #1a1a1e, #3a3a42, #5a4a2e, #3a3a42, #1a1a1e, #0b0b0c);
+  background-size: 300% 300%;
+  animation: grad 9s ease infinite;
+}
+
+.bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(60% 55% at 50% 45%, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.2) 100%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.35) 0%, transparent 25%, transparent 70%, #000 100%);
+}
+
+@keyframes grad {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.copy {
+  text-align: center;
+  display: grid;
+  justify-items: center;
+  gap: 22px;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 40px;
+  padding: 0 6px 0 16px;
+  border-radius: 999px;
+  border: 1px solid var(--line-2);
+  font-size: 14px;
+  color: var(--text);
+  text-decoration: none;
+  background: color-mix(in srgb, var(--surface) 70%, transparent);
+  transition: border-color 0.2s;
+}
+
+.pill:hover {
+  border-color: var(--gold-ink);
+}
+
+.pill b {
+  font-weight: 600;
+  color: var(--gold-ink);
+}
+
+.go {
+  display: inline-flex;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--gold);
+  color: var(--on-gold);
+  align-items: center;
+  justify-content: center;
+}
+
+.go svg {
+  width: 14px;
+  height: 14px;
+}
+
+.h1 {
+  font-family: var(--geist);
+  font-size: 46px;
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+  font-weight: 600;
+  padding-bottom: 0.06em;
+  background: linear-gradient(180deg, #ffffff 0%, #f5f5f7 45%, #9c9ca3 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* efeito: brilho dourado no "é o Rei", a cada 6 s */
+.h1 span {
+  display: block;
+  font-weight: 700;
+  background: linear-gradient(100deg, #b88742 0%, #dfb35a 35%, #f3dea6 50%, #dfb35a 65%, #b88742 100%);
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shine 6s ease-in-out infinite;
+}
+
+@keyframes shine {
+  0%,
+  100% {
+    background-position: 100% 0;
+  }
+  50% {
+    background-position: 0 0;
+  }
+}
+
+.ctas {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+}
+
+.ctas :global(.btn) {
+  width: 100%;
+  max-width: 340px;
+}
+
+.note {
+  display: table;
+  margin: 56px auto 0;
+  font-size: 12px;
+}
+
+@media (min-width: 768px) {
+  .hero {
+    padding-block: 80px 60px;
+  }
+  .h1 {
+    font-size: 72px;
+  }
+  .ctas {
+    flex-direction: row;
+    justify-content: center;
+    gap: 16px;
+  }
+  .ctas :global(.btn) {
+    width: auto;
+  }
+}
+
+@media (min-width: 1200px) {
+  .h1 {
+    font-size: clamp(88px, 7.6vw, 112px);
+  }
+  .hero {
+    padding-block: 140px 110px;
+    min-height: 44vw;
+    display: flex;
+    align-items: center;
+  }
+  .hero > :global(.wrap) {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bg {
+    animation: none;
+  }
+  .h1 span {
+    animation: none;
+  }
+}

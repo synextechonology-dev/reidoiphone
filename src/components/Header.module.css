@@ -1,0 +1,148 @@
+.top {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 60;
+  background: var(--header);
+  backdrop-filter: saturate(1.6) blur(14px);
+  -webkit-backdrop-filter: saturate(1.6) blur(14px);
+  border-bottom: 1px solid var(--line);
+}
+
+.barra {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 64px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  text-decoration: none;
+  margin-right: auto;
+}
+
+.brand img {
+  display: block;
+  height: 34px;
+  width: auto;
+}
+
+.brand .wm {
+  height: 20px;
+}
+
+.logoL {
+  display: none !important;
+}
+
+:global(:root[data-tema="claro"]) .logoD {
+  display: none !important;
+}
+
+:global(:root[data-tema="claro"]) .logoL {
+  display: block !important;
+}
+
+.nav {
+  display: none;
+  gap: 26px;
+}
+
+.nav a {
+  position: relative;
+  font-size: 15px;
+  color: var(--text-2);
+  text-decoration: none;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  transition: color 0.2s;
+}
+
+.nav a:hover {
+  color: var(--text);
+}
+
+/* efeito: sublinhado que cresce do centro */
+.nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 6px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav a:hover::after,
+.nav a:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.icLua {
+  display: block;
+}
+
+.icSol {
+  display: none;
+}
+
+:global(:root[data-tema="claro"]) .icLua {
+  display: none;
+}
+
+:global(:root[data-tema="claro"]) .icSol {
+  display: block;
+}
+
+.top .cta {
+  display: none;
+}
+
+.drawer {
+  border-top: 1px solid var(--line);
+}
+
+.drawer[hidden] {
+  display: none;
+}
+
+.drawer ul {
+  list-style: none;
+  margin: 0;
+  padding: 6px var(--gr) 18px var(--gl);
+  display: grid;
+}
+
+.drawer a {
+  display: flex;
+  align-items: center;
+  min-height: 54px;
+  font: 600 20px var(--display);
+  text-decoration: none;
+  border-bottom: 1px solid var(--line);
+}
+
+@media (min-width: 768px) {
+  .top .cta {
+    display: inline-flex;
+  }
+  .top .menuBtn {
+    display: none;
+  }
+  .top .drawer {
+    display: none !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .nav {
+    display: flex;
+  }
+}

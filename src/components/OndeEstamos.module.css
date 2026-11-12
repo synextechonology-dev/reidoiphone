@@ -1,0 +1,58 @@
+.where {
+  display: grid;
+  gap: 16px;
+}
+
+.place {
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: var(--surface);
+  padding: 22px;
+  display: grid;
+  gap: 18px;
+  align-content: start;
+}
+
+.place dl {
+  margin: 0;
+  display: grid;
+  gap: 14px;
+}
+
+.place dt {
+  font-size: 13px;
+  color: var(--text-2);
+}
+
+.place dd {
+  margin: 2px 0 0;
+  font-weight: 500;
+}
+
+.b2 {
+  display: grid;
+  gap: 8px;
+}
+
+.map {
+  min-height: 260px;
+  border-radius: 22px;
+  border: 1px solid var(--line);
+  background: radial-gradient(var(--grid) 1px, transparent 1px) 0 0 / 20px 20px, var(--surface-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  color: var(--text-2);
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  .where {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  }
+  .b2 {
+    grid-template-columns: 1fr 1fr;
+  }
+}

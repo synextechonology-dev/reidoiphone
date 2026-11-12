@@ -1,0 +1,78 @@
+.footer {
+  border-top: 1px solid var(--line);
+  padding-block: 48px calc(100px + env(safe-area-inset-bottom, 0px));
+  font-size: 14px;
+  color: var(--text-2);
+}
+
+.cols {
+  display: grid;
+  gap: 28px;
+}
+
+.fb img {
+  height: 64px;
+  width: auto;
+}
+
+.logoL {
+  display: none;
+}
+
+:global(:root[data-tema="claro"]) .logoD {
+  display: none;
+}
+
+:global(:root[data-tema="claro"]) .logoL {
+  display: block;
+}
+
+.footer h3 {
+  font: 500 13px var(--body);
+  color: var(--text-2);
+  margin-bottom: 8px;
+}
+
+.footer ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer a {
+  color: var(--text);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+}
+
+.footer a:hover {
+  color: var(--gold-ink);
+}
+
+.legal {
+  margin-top: 36px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+  font-size: 12.5px;
+  display: grid;
+  gap: 6px;
+  line-height: 1.6;
+}
+
+.legal a {
+  display: inline;
+  min-height: 0;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@media (min-width: 768px) {
+  .footer {
+    padding-bottom: 48px;
+  }
+  .cols {
+    grid-template-columns: 1.4fr 1fr 1fr;
+  }
+}

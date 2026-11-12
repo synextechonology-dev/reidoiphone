@@ -1,0 +1,28 @@
+.barra {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 50;
+  padding: 10px var(--gr) calc(10px + env(safe-area-inset-bottom, 0px)) var(--gl);
+  background: var(--header);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-top: 1px solid var(--line);
+  transition: transform 0.3s;
+}
+
+.barra :global(.btn) {
+  width: 100%;
+  min-height: 54px;
+}
+
+.hide {
+  transform: translateY(110%);
+}
+
+@media (min-width: 768px) {
+  .barra {
+    display: none;
+  }
+}

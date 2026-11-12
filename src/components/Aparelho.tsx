@@ -16,7 +16,8 @@ export default function Aparelho({ modelo, cor, className = "", style }: Props) 
   if (foto) {
     return (
       <div className={`${s.dev} ${s.photo} ${className}`} style={style} aria-hidden="true">
-        <Image src={foto.costas} alt="" width={foto.w} height={foto.h} />
+        {/* unoptimized: o arquivo já é pequeno e sem perdas; reotimizar com perda traz de volta o fio claro na borda */}
+        <Image src={foto.costas} alt="" width={foto.w} height={foto.h} unoptimized />
       </div>
     );
   }
